@@ -1,0 +1,10 @@
+<h2>Flower List</h2>
+
+<ol>
+  @for(flower of (catalog | async)?.flowers; track $index){
+  <li>
+    {{flower.label}}: {{flower.price}}
+  </li>
+  }
+</ol>
+
