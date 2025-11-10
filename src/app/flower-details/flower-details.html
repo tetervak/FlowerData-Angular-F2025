@@ -1,1 +1,13 @@
-<p>flower-details works!</p>
+<h2>Flower Details</h2>
+
+@if(flower != undefined){
+
+  <h3>{{flower.label}}</h3>
+  <p>Price: {{flower.price}}</p>
+  <p>{{flower.description}}</p>
+  <p>Wikipedia: {{flower.wiki}}</p>
+}
+
+<p>
+  <a routerLink="/flower-list">Flower List</a>
+</p>

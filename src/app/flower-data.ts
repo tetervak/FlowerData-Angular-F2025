@@ -20,4 +20,11 @@ export class FlowerData {
       map((catalog: Catalog): Flower[] => catalog.flowers)
     )
   }
+
+  getFlowerById(flowerId: string): Observable<Flower | undefined>{
+    return this.getFlowerList().pipe(
+      map((flowers: Flower[]): Flower | undefined =>
+        flowers.find((f: Flower): boolean => f.id === flowerId))
+    )
+  }
 }

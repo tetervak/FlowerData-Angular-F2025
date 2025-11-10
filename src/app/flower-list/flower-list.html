@@ -4,6 +4,7 @@
   @for(flower of flowers; track $index){
   <li>
     {{flower.label}}: {{flower.price}}
+    <a routerLink="/flowers/{{flower.id}}">Details</a>
   </li>
   }
 </ol>

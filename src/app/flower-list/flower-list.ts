@@ -1,13 +1,13 @@
 import {Component, OnDestroy} from '@angular/core';
 import {FlowerData} from '../flower-data';
-import {AsyncPipe} from '@angular/common';
-import {Observable, Subscription} from 'rxjs';
-import {Catalog, Flower} from '../json-structure';
+import {Subscription} from 'rxjs';
+import {Flower} from '../json-structure';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-flower-list',
   imports: [
-    AsyncPipe
+    RouterLink
   ],
   templateUrl: './flower-list.html',
   styleUrl: './flower-list.css',
