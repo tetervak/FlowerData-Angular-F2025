@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {Catalog} from './json-structure';
+import {map, Observable} from 'rxjs';
+import {Catalog, Flower} from './json-structure';
 
 @Injectable({
   providedIn: 'root',
@@ -13,5 +13,11 @@ export class FlowerData {
 
   getCatalog():Observable<Catalog>{
     return this.httpClient.get<Catalog>("/data/catalog.json");
+  }
+
+  getFlowerList(): Observable<Flower[]>{
+    return this.getCatalog().pipe(
+      map((catalog: Catalog): Flower[] => catalog.flowers)
+    )
   }
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {FlowerData} from '../flower-data';
 import {AsyncPipe} from '@angular/common';
 import {Observable} from 'rxjs';
-import {Catalog} from '../json-structure';
+import {Catalog, Flower} from '../json-structure';
 
 @Component({
   selector: 'app-flower-list',
@@ -14,10 +14,10 @@ import {Catalog} from '../json-structure';
 })
 export class FlowerList {
 
-  catalog: Observable<Catalog>;
+  flowers: Observable<Flower[]>;
 
   constructor(flowerData: FlowerData) {
-    this.catalog = flowerData.getCatalog();
+    this.flowers = flowerData.getFlowerList();
   }
 
 }
