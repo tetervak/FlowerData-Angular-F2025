@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {FlowerData} from '../flower-data';
 import {AsyncPipe} from '@angular/common';
-import {Observable} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {Catalog, Flower} from '../json-structure';
 
 @Component({
@@ -12,12 +12,19 @@ import {Catalog, Flower} from '../json-structure';
   templateUrl: './flower-list.html',
   styleUrl: './flower-list.css',
 })
-export class FlowerList {
+export class FlowerList implements OnDestroy {
 
-  flowers: Observable<Flower[]>;
+  flowers: Flower[] = [];
+
+  flowersSub: Subscription | undefined
 
   constructor(flowerData: FlowerData) {
-    this.flowers = flowerData.getFlowerList();
+    this.flowersSub = flowerData.getFlowerList().subscribe(
+      (flowers: Flower[]): Flower[] => this.flowers = flowers
+    );
   }
 
+  ngOnDestroy() {
+    this.flowersSub?.unsubscribe();
+  }
 }
