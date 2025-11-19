@@ -2,8 +2,15 @@
 
 @if(flower != undefined){
 
-  <h3>{{flower.label}}</h3>
-  <p>Price: {{flower.price}}</p>
+  <h3 class="flower_label">
+    <span class="flower_label">Flower</span>
+    <span class="flower_name"> {{flower.label}}</span>
+  </h3>
+  <p>Price: {{flower.price | currency}}</p>
+  <p>
+    <img class="flower_image"
+      src="/images/flowers/{{flower.picture.large}}" alt="{{flower.id}} image">
+  </p>
   <p>{{flower.description}}</p>
   <p>Wikipedia: {{flower.wiki}}</p>
 }

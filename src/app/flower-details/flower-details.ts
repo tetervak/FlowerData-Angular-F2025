@@ -3,11 +3,13 @@ import {ActivatedRoute, RouterLink} from '@angular/router';
 import {FlowerData} from '../flower-data';
 import {Flower} from '../json-structure';
 import {Subscription} from 'rxjs';
+import {CurrencyPipe} from '@angular/common';
 
 @Component({
   selector: 'app-flower-details',
   imports: [
-    RouterLink
+    RouterLink,
+    CurrencyPipe
   ],
   templateUrl: './flower-details.html',
   styleUrl: './flower-details.css',

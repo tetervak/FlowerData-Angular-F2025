@@ -1,11 +1,24 @@
 <h2>Flower List</h2>
 
-<ol>
-  @for(flower of flowers; track $index){
-  <li>
-    {{flower.label}}: {{flower.price}}
-    <a routerLink="/flowers/{{flower.id}}">Details</a>
-  </li>
+<table>
+  @for (flower of flowers; track $index) {
+    <tr>
+      <td>
+        <a routerLink="/flowers/{{flower.id}}">
+          <img class="thumb" src="/images/flowers/{{flower.picture.small}}" alt="{{flower.id}} image">
+        </a>
+      </td>
+      <td>
+        <p>
+          <span class="flower_label">{{ flower.label }}</span>
+          <span class="flower_price">{{ flower.price | currency}}</span>
+        </p>
+        <p>
+          <a  class="flower_details_link"
+              routerLink="/flowers/{{flower.id}}">Details</a>
+        </p>
+      </td>
+    </tr>
   }
-</ol>
+</table>
 
